@@ -1,6 +1,5 @@
 import React from "react";
-import cn from "../../../lib/cn";
-import makeClassName from "../../../lib/make-class-name";
+import { cn } from "../../../lib/cn";
 
 const titleStyles = {
   h1: "",
@@ -24,11 +23,7 @@ export function Title({
   const Component = as;
 
   return (
-    <Component
-      className={cn(makeClassName(`title-${as}`), titleStyles[as], className)}
-    >
-      {children}
-    </Component>
+    <Component className={cn(titleStyles[as], className)}>{children}</Component>
   );
 }
 

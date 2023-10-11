@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Loader from "../loader";
+import { Loader } from "../loader";
 import { cn } from "../../lib/cn";
 
 const buttonClasses = {
