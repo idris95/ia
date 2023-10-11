@@ -1,13 +1,20 @@
-import { defineConfig, Options } from "tsup";
+import { defineConfig } from "tsup";
 
-export default defineConfig((options: Options) => ({
-  treeshake: true,
-  splitting: true,
+export default defineConfig({
   entry: ["src/index.ts"],
-  format: ["cjs", "esm"],
+  format: ["esm", "cjs"],
   dts: true,
-  minify: true,
   clean: true,
-  external: ["react"],
-  ...options,
-}));
+  minify: true,
+  sourcemap: false,
+  splitting: true,
+  treeshake: true,
+  bundle: true,
+  external: ["react", "react-dom"],
+  // does not support with splitting tsup v:7.2.0
+  // esbuildOptions(options) {
+  //   options.banner = {
+  //     js: '"use client"',
+  //   };
+  // },
+});
